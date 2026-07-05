@@ -1,0 +1,27 @@
+{
+    "LAG_HOURS": [
+        24,
+        48,
+        72
+    ],
+    "ROLLING_WINDOWS": [
+        24,
+        48
+    ],
+    "seq_length": 48,
+    "feature_cols_file": "feature_cols.pkl",
+    "scaler_X_file": "scaler_X.pkl",
+    "scaler_y_file": "scaler_y.pkl",
+    "lstm_model_file": "bilstm_attention.pt",
+    "xgb_model_files": {
+        "pm25": "xgb_pm25.json",
+        "no2": "xgb_no2.json",
+        "o3": "xgb_o3.json"
+    },
+    "prophet_model_files": {
+        "pm25": "prophet_pm25.json",
+        "no2": "prophet_no2.json",
+        "o3": "prophet_o3.json"
+    },
+    "ensemble_weights_file": "ensemble_weights.npy"
+}

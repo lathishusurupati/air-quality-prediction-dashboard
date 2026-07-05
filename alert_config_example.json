@@ -1,0 +1,35 @@
+{
+    "smtp_settings": {
+        "smtp_server": "smtp.gmail.com",
+        "smtp_port": 587,
+        "sender_email": "your-email@gmail.com",
+        "sender_password": "your-app-password-here",
+        "use_tls": true
+    },
+    "alert_thresholds": {
+        "good": 50,
+        "moderate": 100,
+        "unhealthy_sensitive": 150,
+        "unhealthy": 200,
+        "very_unhealthy": 300,
+        "hazardous": 301
+    },
+    "notification_settings": {
+        "enabled": true,
+        "alert_on_threshold": 100,
+        "send_daily_summary": false,
+        "recipient_emails": [
+            "recipient1@example.com",
+            "recipient2@example.com"
+        ]
+    },
+    "health_impact_settings": {
+        "population": 1000000,
+        "baseline_respiratory_rate": 800,
+        "baseline_cardiovascular_rate": 500,
+        "rr_pm25_respiratory": 1.052,
+        "rr_no2_respiratory": 1.027,
+        "rr_o3_respiratory": 1.010,
+        "rr_pm25_cardiovascular": 1.011
+    }
+}
