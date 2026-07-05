@@ -130,7 +130,7 @@ def load_models():
 
 @st.cache_data
 def load_historical_data():
-    df = pd.read_csv('Saved_Model/uk_air_quality_data_complete.csv')
+    df = pd.read_csv('uk_air_quality_data_complete.csv')
     df['datetime_utc'] = pd.to_datetime(df['datetime_utc'])
     return df
 
@@ -731,4 +731,4 @@ try:
 
 except Exception as e:
     st.error(f"Error loading models or data: {str(e)}")
-    st.info("Please ensure all model files are in the 'Saved_Model/' directory")
+    st.info("Please ensure all model files are in the 'Saved_Model/' directory and that 'uk_air_quality_data_complete.csv' is present in the project root.")

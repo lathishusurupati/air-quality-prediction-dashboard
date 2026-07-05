@@ -1,5 +1,6 @@
 import smtplib
 import json
+import os
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
@@ -10,7 +11,16 @@ import matplotlib.pyplot as plt
 import io
 
 class AirQualityAlertSystem:
-    def __init__(self, config_file='alert_config_example.json'):
+    def __init__(self, config_file='alert_config.json'):
+        if not os.path.exists(config_file):
+            if os.path.exists('alert_config_example.json'):
+                raise FileNotFoundError(
+                    f"'{config_file}' not found. Copy 'alert_config_example.json' to "
+                    f"'{config_file}' and fill in your own SMTP credentials, as described "
+                    f"in the README."
+                )
+            raise FileNotFoundError(f"'{config_file}' not found.")
+
         with open(config_file, 'r') as f:
             self.config = json.load(f)
 
@@ -347,11 +357,10 @@ if __name__ == "__main__":
 
         else:
             print(f"ERROR: {message}")
-            print("\nPlease check your SMTP configuration in alert_config_example.json")
+            print("\nPlease check your SMTP configuration in alert_config.json")
 
-    except FileNotFoundError:
-        print("ERROR: alert_config_example.json not found")
-        print("Please create this file with your SMTP configuration")
+    except FileNotFoundError as e:
+        print(f"ERROR: {e}")
 
     except Exception as e:
         print(f"ERROR: {str(e)}")
